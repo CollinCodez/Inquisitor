@@ -3,7 +3,7 @@
 #include <stdio.h> // File IO
 #include <stdlib.h> // Used for the Dynamic File Path
 #include <string.h> 
-
+#include <stdbool.h>
 
 // Gets & prints out the Parsec Log
 static bool getLog(const char *path)
@@ -15,7 +15,7 @@ static bool getLog(const char *path)
     if(fp == NULL)
     {
         printf("No Log Found in %s\n", path);
-        return 0;
+        return false;
     }
 
     // Section header
@@ -33,7 +33,7 @@ static bool getLog(const char *path)
 
     // Close the log file
     fclose(fp);
-    return 1;
+    return true;
 }
 
 
