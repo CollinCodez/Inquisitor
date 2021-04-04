@@ -5,7 +5,7 @@
 #include <string.h> 
 
 
-//Gets & prints out the Parsec Log
+// Gets & prints out the Parsec Log
 static bool getLog(const char *path)
 {
     // Open Log File for Reading
@@ -33,7 +33,7 @@ static bool getLog(const char *path)
 
     // Close the log file
     fclose(fp);
-    return 1
+    return 1;
 }
 
 
