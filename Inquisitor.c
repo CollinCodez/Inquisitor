@@ -5,8 +5,8 @@
 #include <string.h> 
 
 
-/ /Gets & prints out the Parsec Log
-static void getLog(const char *path)
+//Gets & prints out the Parsec Log
+static bool getLog(const char *path)
 {
     // Open Log File for Reading
     FILE* fp = fopen(path,"r");
@@ -15,10 +15,10 @@ static void getLog(const char *path)
     if(fp == NULL)
     {
         printf("No Log Found in %s\n", path);
-        return(-1);
+        return 0;
     }
 
-    //Section header
+    // Section header
     printf("------------------------------PARSEC LOG------------------------------\n");
 
     // Print file contents
@@ -31,8 +31,9 @@ static void getLog(const char *path)
     
     printf("\n------------------------------END OF PARSEC LOG------------------------------\n\n");
 
-    //Close the log file
-    fclose(FILE* fp);
+    // Close the log file
+    fclose(fp);
+    return 1
 }
 
 
