@@ -38,7 +38,12 @@ static bool getLog(const char *path)
     printf("\n------------------------------END OF PARSEC LOG------------------------------\n\n");
 
     // Close the log file
-    fclose(fp);
+    int d = fclose(fp);
+    if(d != EOF){
+        printf("Log File Closed Successfully \n");
+    }else {
+        printf("Log File Faild to Close \n");
+    }
     return true;
 }
 
@@ -73,8 +78,13 @@ static bool getConfig(const char *path)
     
     printf("\n------------------------------END OF PARSEC CONFIG------------------------------\n\n");
 
-    // Close the log file
-    fclose(fp);
+    // Close the Config file
+    int d = fclose(fp);
+    if(d != EOF){
+        printf("Config File Closed Successfully \n");
+    }else {
+        printf("Config File Faild to Close \n");
+    }
     return true;
 }
 
