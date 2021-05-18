@@ -7,6 +7,11 @@
 #include <string.h> 
 #include <stdbool.h>
 
+
+// Searches a line of a log or config file and removes private data
+
+//
+
 // Gets & prints out the Parsec Log
 static bool getLog(const char *path)
 {
@@ -15,10 +20,10 @@ static bool getLog(const char *path)
     snprintf(logPath, sizeof(logPath), "%s%s", path, "log.txt");
     
     // Open Log File for Reading
-    FILE* fp = fopen(logPath,"r");
+    FILE* logFile = NULL;
     
     // Check to make sure that the Parsec log opened correctly
-    if(fp == NULL)
+    if (fopen_s(&logFile, logPath, "r") != 0)
     {
         printf("No Log Found in %s\n", logPath);
         return false;
@@ -28,17 +33,17 @@ static bool getLog(const char *path)
     printf("------------------------------PARSEC LOG------------------------------\n");
 
     // Print file contents
-    char c = fgetc(fp);
+    char c = fgetc(logFile);
     while (c != EOF)
     {
         printf("%c", c);
-        c = fgetc(fp);
+        c = fgetc(logFile);
     }
     
     printf("\n------------------------------END OF PARSEC LOG------------------------------\n\n");
 
     // Close the log file
-    int d = fclose(fp);
+    int d = fclose(logFile);
     if(d != EOF){
         printf("Log File Closed Successfully \n");
     }else {
@@ -56,10 +61,10 @@ static bool getConfig(const char *path)
     snprintf(configPath, sizeof(configPath), "%s%s", path, "config.txt");
     
     // Open Log File for Reading
-    FILE* fp = fopen(configPath,"r");
+    FILE* configFile = NULL;
     
-    // Check to make sure that the Parsec log opened correctly
-    if(fp == NULL)
+    // Check to make sure that the Parsec Config opened correctly
+    if (fopen_s(&configFile, configPath, "r") != 0)
     {
         printf("No Config Found in %s\n", configPath);
         return false;
@@ -69,17 +74,17 @@ static bool getConfig(const char *path)
     printf("------------------------------PARSEC CONFIG------------------------------\n");
 
     // Print file contents
-    char c = fgetc(fp);
+    char c = fgetc(configFile);
     while (c != EOF)
     {
         printf("%c", c);
-        c = fgetc(fp);
+        c = fgetc(configFile);
     }
     
     printf("\n------------------------------END OF PARSEC CONFIG------------------------------\n\n");
 
     // Close the Config file
-    int d = fclose(fp);
+    int d = fclose(configFile);
     if(d != EOF){
         printf("Config File Closed Successfully \n");
     }else {
