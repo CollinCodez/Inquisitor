@@ -1,7 +1,13 @@
-# Inquisitor
+# InquisitorCollinCodez-oracle-addition
 This is a tool to help with Parsec Support.
 
 This is still in development.
+
+How to compile:
+
+	1) Open a developer commmand line from Microsoft Visual Studio in the directory with the code for Inqusitor
+	2) run nmake
+	3) Bada Bing, Bada Boom! Debug Away!
 
 Current Features:
 
