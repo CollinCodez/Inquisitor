@@ -6,6 +6,7 @@
 #include <stdlib.h> // Used for the Dynamic File Path
 #include <string.h> 
 #include <stdbool.h>
+#include "oracle.h"
 
 
 // Searches a line of a log or config file and removes private data
@@ -117,6 +118,9 @@ int main()
     // Get Log & Config from Programdata path
     getLog("C:/ProgramData/Parsec/");
     getConfig("C:/ProgramData/Parsec/");
+
+    //Print System Specs using Oracle
+    oracleMain();
 
     // Ending
     printf("Please select everything in this window by pressing Ctrl+A, then right click to copy it.\nHit 'ENTER' to exit'\n");
